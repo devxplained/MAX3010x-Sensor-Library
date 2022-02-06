@@ -36,7 +36,7 @@ protected:
   static const uint8_t FIFO_CFG_REG = 0x8;        //!< FIFO Configuration Register
   static const uint8_t FIFO_SMP_AVE_BIT = 5;      //!< Sample Averaging Bit Position
   static const uint8_t FIFO_SMP_AVE_MASK = 0x7;   //!< Sample Averaging Bit Mask
-  static const uint8_t FIFO_ROLLOVER_EN_BIT = 6;  //!< FIFO Rollover Bit
+  static const uint8_t FIFO_ROLLOVER_EN_BIT = 4;  //!< FIFO Rollover Bit
   static const uint8_t FIFO_A_FULL_BIT = 0;       //!< FIFO Almost Full Threshold Bit Position
   static const uint8_t FIFO_A_FULL_MASK = 0xF;    //!< FIFO Almost Full Threshold Bit Mask
   
