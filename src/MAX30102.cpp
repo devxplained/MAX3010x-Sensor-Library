@@ -53,7 +53,7 @@ MAX30102::MAX30102(uint8_t addr, TwoWire& wire) : MAX3010xMultiLed(addr, wire) {
  * @returns true if successful, otherwise false
  */
 bool MAX30102::setDefaultConfiguration() {
-  MultiLedConfiguration cfg = {0};
+  MultiLedConfiguration cfg {};
   
   if(!setMultiLedConfiguration(cfg)) return false;
   if(!setLedCurrent(LED_RED, 90)) return false;
@@ -95,7 +95,7 @@ bool MAX30102::setMultiLedConfiguration(const MAX30102::MultiLedConfiguration& c
     }
   }
   
-  uint8_t rawCfg[2] = {0};
+  uint8_t rawCfg[2] {};
   rawCfg[0] = static_cast<uint8_t>(cfg.slot[0]) | (static_cast<uint8_t>(cfg.slot[1]) << 4);
   rawCfg[1] = static_cast<uint8_t>(cfg.slot[2]) | (static_cast<uint8_t>(cfg.slot[3]) << 4);
   
