@@ -77,12 +77,12 @@ protected:
   bool setMultiLedConfigurationInternal(uint8_t activeSlots, uint8_t cfg[2]) {
     uint8_t value;
     
-    if(!writeBlock(MAX3010xImpl::MULTI_LED_CFG_REG_BASE, sizeof(cfg), cfg)) return false;
+    if(!MAX3010x<MAX3010xImpl, MAX3010xSample>::writeBlock(MAX3010xImpl::MULTI_LED_CFG_REG_BASE, sizeof(cfg), cfg)) return false;
     
     nConfiguredSlots = activeSlots;
     if(currentMode == MODE_MULTI_LED) nActiveSlots = nConfiguredSlots;
     
-    return clearFIFO();
+    return MAX3010x<MAX3010xImpl, MAX3010xSample>::clearFIFO();
   }
   
   /**
@@ -110,7 +110,7 @@ public:
     else if(mode == MODE_MULTI_LED) activeSlots = nConfiguredSlots;
     else return false;
     
-    if(!setModeInternal(static_cast<uint8_t>(mode))) return false;
+    if(!MAX3010x<MAX3010xImpl, MAX3010xSample>::setModeInternal(static_cast<uint8_t>(mode))) return false;
     
     currentMode = mode;
     nActiveSlots = activeSlots;
@@ -140,12 +140,12 @@ public:
     uint8_t cfg;
     
     if(rate & (~ SPO2_CFG_SMP_RATE_MASK)) return false;
-    if(!readByte(SPO2_CFG_REG, cfg)) return false;
+    if(!MAX3010x<MAX3010xImpl, MAX3010xSample>::readByte(SPO2_CFG_REG, cfg)) return false;
     
     cfg &= ~(SPO2_CFG_SMP_RATE_MASK << SPO2_CFG_SMP_RATE_BIT);
     cfg |= (static_cast<uint8_t>(rate) & SPO2_CFG_SMP_RATE_MASK) << SPO2_CFG_SMP_RATE_BIT;
     
-    return writeByte(SPO2_CFG_REG, cfg);
+    return MAX3010x<MAX3010xImpl, MAX3010xSample>::writeByte(SPO2_CFG_REG, cfg);
   }
   
   /**
@@ -167,12 +167,12 @@ public:
     uint8_t cfg;
     
     if(range & (~ SPO2_CFG_ADC_RANGE_MASK)) return false;
-    if(!readByte(SPO2_CFG_REG, cfg)) return false;
+    if(!MAX3010x<MAX3010xImpl, MAX3010xSample>::readByte(SPO2_CFG_REG, cfg)) return false;
     
     cfg &= ~(SPO2_CFG_ADC_RANGE_MASK << SPO2_CFG_ADC_RANGE_BIT);
     cfg |= (static_cast<uint8_t>(range) & SPO2_CFG_ADC_RANGE_MASK) << SPO2_CFG_ADC_RANGE_BIT;
     
-    return writeByte(SPO2_CFG_REG, cfg);
+    return MAX3010x<MAX3010xImpl, MAX3010xSample>::writeByte(SPO2_CFG_REG, cfg);
   }
   
   /**
@@ -194,12 +194,12 @@ public:
     uint8_t cfg;
     
     if(resolution & (~ SPO2_CFG_RESOLUTION_MASK)) return false;
-    if(!readByte(SPO2_CFG_REG, cfg)) return false;
+    if(!MAX3010x<MAX3010xImpl, MAX3010xSample>::readByte(SPO2_CFG_REG, cfg)) return false;
     
     cfg &= ~(SPO2_CFG_RESOLUTION_MASK << SPO2_CFG_RESOLUTION_BIT);
     cfg |= (static_cast<uint8_t>(resolution) & SPO2_CFG_RESOLUTION_MASK) << SPO2_CFG_RESOLUTION_BIT;
     
-    return writeByte(SPO2_CFG_REG, cfg);
+    return MAX3010x<MAX3010xImpl, MAX3010xSample>::writeByte(SPO2_CFG_REG, cfg);
   }
   
   /**
@@ -207,7 +207,7 @@ public:
   * @return true if successful, otherwise false
   */
   bool enableFIFORollover() {
-    return setBit(FIFO_CFG_REG, FIFO_ROLLOVER_EN_BIT, true);
+    return MAX3010x<MAX3010xImpl, MAX3010xSample>::setBit(FIFO_CFG_REG, FIFO_ROLLOVER_EN_BIT, true);
   }
   
   /**
@@ -215,7 +215,7 @@ public:
   * @return true if successful, otherwise false
   */
   bool disableFIFORollover() {
-    return setBit(FIFO_CFG_REG, FIFO_ROLLOVER_EN_BIT, false);
+    return MAX3010x<MAX3010xImpl, MAX3010xSample>::setBit(FIFO_CFG_REG, FIFO_ROLLOVER_EN_BIT, false);
   }
   
   /**
@@ -240,12 +240,12 @@ public:
     uint8_t cfg;
     
     if(averaging & (~ FIFO_SMP_AVE_MASK)) return false;
-    if(!readByte(FIFO_CFG_REG, cfg)) return false;
+    if(!MAX3010x<MAX3010xImpl, MAX3010xSample>::readByte(FIFO_CFG_REG, cfg)) return false;
     
     cfg &= ~(FIFO_SMP_AVE_MASK << FIFO_SMP_AVE_BIT);
     cfg |= (static_cast<uint8_t>(averaging) & FIFO_SMP_AVE_MASK) << FIFO_SMP_AVE_BIT;
     
-    return writeByte(FIFO_CFG_REG, cfg);
+    return MAX3010x<MAX3010xImpl, MAX3010xSample>::writeByte(FIFO_CFG_REG, cfg);
   }
   
 };
