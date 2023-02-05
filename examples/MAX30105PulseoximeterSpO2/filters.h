@@ -23,8 +23,8 @@ public:
    * @brief Add value to the statistic
    */
   void process(float value) {  
-    min_ = min(min_, value);
-    max_ = max(max_, value);
+    min_ = isnan(min_) ? value : min(min_, value);
+    max_ = isnan(max_) ? value : max(max_, value);
     sum_ += value;
     count_++;
   }
