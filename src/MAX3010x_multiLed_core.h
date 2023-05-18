@@ -127,6 +127,7 @@ public:
     SAMPLING_RATE_200SPS,   //!< 200 samples per second
     SAMPLING_RATE_400SPS,   //!< 400 samples per second
     SAMPLING_RATE_800SPS,   //!< 800 samples per second
+    SAMPLING_RATE_1000SPS,  //!< 1000 samples per second
     SAMPLING_RATE_1600SPS,  //!< 1600 samples per second
     SAMPLING_RATE_3200SPS   //!< 3200 samples per second
   };

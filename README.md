@@ -8,7 +8,7 @@ Redistribution is possible under the terms of the MIT license.
 
 # References
 * MAX30100: [https://datasheets.maximintegrated.com/en/ds/MAX30100.pdf](https://datasheets.maximintegrated.com/en/ds/MAX30100.pdf)
-* MAX30102: [https://datasheets.maximintegrated.com/en/ds/MAX30101.pdf](https://datasheets.maximintegrated.com/en/ds/MAX30101.pdf)
+* MAX30101: [https://datasheets.maximintegrated.com/en/ds/MAX30101.pdf](https://datasheets.maximintegrated.com/en/ds/MAX30101.pdf)
 * MAX30102: [https://datasheets.maximintegrated.com/en/ds/MAX30102.pdf](https://datasheets.maximintegrated.com/en/ds/MAX30102.pdf)
 * MAX30105: [https://datasheets.maximintegrated.com/en/ds/MAX30105.pdf](https://datasheets.maximintegrated.com/en/ds/MAX30105.pdf)
 
